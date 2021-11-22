@@ -1,0 +1,29 @@
+@api = http://localhost:5000/taxes
+
+### Health
+GET {{api}}/health
+
+### Get tax rate
+GET {{api}}?city=Santa Monica
+
+### Get tax amount
+POST {{api}}
+content-type: application/json
+
+{
+  "from_country": "US",
+  "from_zip": "07001",
+  "from_state": "NJ",
+  "to_country": "US",
+  "to_zip": "07446",
+  "to_state": "NJ",
+  "amount": 16.50,
+  "shipping": 1.5,
+  "line_items": [
+    {
+      "quantity": 1,
+      "unit_price": 15.0,
+      "product_tax_code": "31000"
+    }
+  ]
+}
